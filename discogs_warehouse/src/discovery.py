@@ -1,13 +1,13 @@
 from pathlib import Path
 import time
 import duckdb
-from discogs_client import Client
+from discogsclient import Client
 from discogs_client.exceptions import HTTPError
 from env import DISCOGS_TOKEN
 from cohorts import COHORTS
 
 # Connect to DB
-DB = Path(__file__).resolve().parents[1] / "discogs.duckdb"
+DB = Path(__file__).resolve().parents[2] / "discogs.duckdb"
 con = duckdb.connect(str(DB))
 
 # Discogs client

@@ -7,7 +7,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 # --- DB connection ---
-DB = Path(__file__).resolve().parents[1] / "discogs.duckdb"
+DB = Path(__file__).resolve().parents[2] / "discogs.duckdb"
 con = duckdb.connect(str(DB))
 
 # --- Token / headers ---

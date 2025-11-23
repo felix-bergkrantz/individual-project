@@ -12,9 +12,4 @@ select
 from prep.lowest pl
 left join model.d_release dr
     on dr.release_id = pl.release_id
-qualify pl.ingested_at = (
-    select max(ingested_at)
-    from prep.lowest pl2    
-    where pl2.release_id = pl.release_id
-);
-
+qualify pl.ingested_at = max(pl.ingested_at) over (partition by pl.release_id);
